@@ -5,7 +5,7 @@ newlengths2 = []
 newlengths3 = []
 kmercoverage = []
 physicallengths = []
-with open ('c31ids', "r") as fh:
+with open ('Unit_test.fa', "r") as fh:
     for line in fh:
         i = 0
         length = re.findall("[0-9]+_c", line)
@@ -16,7 +16,7 @@ for item in newlengths:
     x = item.strip("_c")
     newlengths2.append(float(x))
 
-with open ('c31ids', "r") as fh:
+with open ('Unit_test.fa', "r") as fh:
     for line in fh:
         ind = 0
         coverage = re.findall("v_[0-9\.]+", line)
@@ -38,7 +38,7 @@ print("max contig =",newlengths2[-1])
 
 #physical length
 for number in (newlengths2):
-    pl = (number-1+31)
+    pl = (number-1+49)
     physicallengths.append(pl)
 #print (physicallengths)
 

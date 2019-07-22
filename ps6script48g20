@@ -5,7 +5,7 @@ newlengths2 = []
 newlengths3 = []
 kmercoverage = []
 physicallengths = []
-with open ('./directory49.g20/49g20ids.txt', "r") as fh:
+with open ('c49_20ids', "r") as fh:
     for line in fh:
         i = 0
         length = re.findall("[0-9]+_c", line)
@@ -16,7 +16,7 @@ for item in newlengths:
     x = item.strip("_c")
     newlengths2.append(float(x))
 
-with open ('./directory49.g20/49g20ids.txt', "r") as fh:
+with open ('c49_20ids', "r") as fh:
     for line in fh:
         ind = 0
         coverage = re.findall("v_[0-9\.]+", line)
@@ -46,7 +46,7 @@ for number in (newlengths2):
 print (len(newlengths2))
 #Average Contig Length
 total = sum(newlengths2)
-average = total/366
+average = total/(len(newlengths2))
 print ("Average Contig Length:",average)
 
 #Total length of genome
@@ -54,7 +54,7 @@ tl = (sum(physicallengths))
 print ("Total Genome Length:",tl)
 
 #mean depth coverage
-mdc = (sum(kmercoverage))/366
+mdc = (sum(kmercoverage))/(len(newlengths3))
 print ("Mean Depth Coverage",mdc)
 
 #N50 calculation
@@ -71,7 +71,7 @@ for value in physicallengths:
 print ("N50:",physicallengths[i])
 
 buckets= {}
-for number in range(461):
+for number in range(1000):
     buckets[number * 100] = 0
 for value in physicallengths:
     bucket = (int(value/100)*100)
