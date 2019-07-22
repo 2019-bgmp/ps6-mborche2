@@ -82,3 +82,6 @@ for entry in buckets:
     if buckets[entry] != 0:
         bucketsfiltered[entry] = buckets[entry]
 print(bucketsfiltered)
+
+for key in bucketsfiltered:
+    print(key, "\t", bucketsfiltered[key])
